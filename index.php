@@ -43,14 +43,14 @@ if (!empty($_SESSION['active'])) {
         $_SESSION['estadocaja'] = $dato['descaja']; 
         
         if ($_SESSION['estadocaja'] == 'CERRADA') {
-          if (($_SESSION['rol'] == 1) || ($_SESSION['rol'] == 3)) {
+          if (($_SESSION['rol'] == 1) || ($_SESSION['rol'] == 2)) {
             header('location: sistema/');
           } else {
             header('location: sistema/a_caja.php');
           }
           
         } else if($_SESSION['estadocaja'] == 'ABIERTA') {
-          if (($_SESSION['rol'] == 1) || ($_SESSION['rol'] == 3)) {
+          if (($_SESSION['rol'] == 1) || ($_SESSION['rol'] == 2)) {
             header('location: sistema/');
           } else {
             header('location: sistema/registro_ventas.php');

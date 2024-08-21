@@ -454,6 +454,7 @@
 		</div>
 	
 	<?php } ?>
+	
 	<?php if ($_SESSION['rol'] != 1) { ?>												
 		<div class="card mb-4">			
 			<div class="card-header bg-azul text-white">

@@ -37,7 +37,7 @@
 		#Titulo - KARDEX
 		$pdf->SetFont('Arial','B',14);
 		$pdf->SetTextColor(32,100,210);
-		$pdf->Cell(180,1,utf8_decode(strtoupper("REPORTE GENERAL DE MEDICAMENTOS")),0,0,'L');
+		$pdf->Cell(180,1,strtoupper("REPORTE GENERAL DE MEDICAMENTOS"),0,0,'L');
 		$pdf->Ln(3);
 		#NOMBRE DEL MEDICAMENTO
 		#$pdf->SetFont('Arial','B',18);
@@ -51,7 +51,7 @@
 		#FECHA
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(28,7,utf8_decode("Fecha Reporte:"),0,0);
+		$pdf->Cell(28,7,"Fecha Reporte:",0,0);
 		$pdf->SetTextColor(97,97,97);
 		
 		
@@ -68,11 +68,11 @@
 		$pdf->SetFillColor(23,83,201);
 		$pdf->SetDrawColor(255,255,255);
 		$pdf->SetTextColor(255,255,255);
-		$pdf->Cell(5,8,utf8_decode("id"),1,0,'C',true);
-		$pdf->Cell(80,8,utf8_decode("Nombre"),1,0,'C',true);		
-		$pdf->Cell(50,8,utf8_decode("Forma."),1,0,'C',true);
-		$pdf->Cell(30,8,utf8_decode("Con."),1,0,'C',true);		
-		$pdf->Cell(75,8,utf8_decode("A. Terapeutica"),1,0,'C',true);		
+		$pdf->Cell(5,8, "id",1,0,'C',true);
+		$pdf->Cell(80,8,"Nombre",1,0,'C',true);		
+		$pdf->Cell(50,8,"Forma.",1,0,'C',true);
+		$pdf->Cell(30,8,"Con.",1,0,'C',true);		
+		$pdf->Cell(75,8,"A. Terapeutica",1,0,'C',true);		
 		$pdf->Ln(8);
 		$pdf->SetTextColor(39,39,51);
 
@@ -83,10 +83,10 @@
 			$pdf->SetFont('Arial','',8);
 			$pdf->SetDrawColor(23,83,201);
 			$pdf->Cell(5,10,($row['idmedicamento']),'LB',0,'C');			
-			$pdf->Cell(80,10,utf8_decode($row['nombre']),'LB',0,'L');
-			$pdf->Cell(50,10,utf8_decode($row['desforma']),'LB',0,'L');			
-			$pdf->Cell(30,10,utf8_decode($row['conc']),'LRB',0,'L');
-			$pdf->Cell(75,10,utf8_decode($row['desaterapeutica']),'LRB',0,'L');		
+			$pdf->Cell(80,10,$row['nombre'],'LB',0,'L');
+			$pdf->Cell(50,10,$row['desforma'],'LB',0,'L');			
+			$pdf->Cell(30,10,$row['conc'],'LRB',0,'L');
+			$pdf->Cell(75,10,$row['desaterapeutica'],'LRB',0,'L');		
 			$pdf->Ln();				
 		}
 		$pdf->Ln(5);	

@@ -51,19 +51,19 @@
 		#Titulo - KARDEX
 		$pdf->SetFont('Arial','B',10);
 		$pdf->SetTextColor(32,100,210);
-		$pdf->Cell(180,1,utf8_decode(strtoupper("KARDEX")),0,0,'L');
+		$pdf->Cell(180,1,strtoupper("KARDEX"),0,0,'L');
 		$pdf->Ln(1);
 		#NOMBRE DEL MEDICAMENTO
 		$pdf->SetFont('Arial','B',10);
 		$pdf->SetTextColor(10,115,6);		
-		$pdf->Cell(180,10,utf8_decode($result_medicamento['nombre']),0,0,'L');
+		$pdf->Cell(180,10,$result_medicamento['nombre'],0,0,'L');
 	
 		$pdf->Ln(5);
 
 		#Descripcion
 		$pdf->SetFont('Arial','B',10);
 		$pdf->SetTextColor(39,39,51);		
-		$pdf->Cell(180,10,utf8_decode($descompleto),0,0,'L');
+		$pdf->Cell(180,10,$descompleto,0,0,'L');
 		$pdf->SetDrawColor(73,100,6);
 		$pdf->SetLineWidth(0.5);
 		$pdf->Line(17,25,200,25);
@@ -71,8 +71,8 @@
 		#FECHA
 		$pdf->SetFont('Arial','',8);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(28,7,utf8_decode("Fecha Reporte:"),0,0);
-		$pdf->Cell(28,7,utf8_decode($fecha_actual),0,0);
+		$pdf->Cell(28,7,"Fecha Reporte:",0,0);
+		$pdf->Cell(28,7,$fecha_actual,0,0);
 		$pdf->SetTextColor(97,97,97); 
 		$pdf->SetMargins(25, 17, 17,17);
 		$pdf->Ln(7);
@@ -97,7 +97,7 @@
 
 			$pdf->SetFont('Arial','B',8	);		
 			$pdf->SetTextColor(39,39,51);
-			$pdf->Cell(95,7,utf8_decode($nombrearchivo),0,0);			
+			$pdf->Cell(95,7,$nombrearchivo,0,0);			
 			$pdf->Cell(20,7,('Vencimiento :'),0,0);	
 			$pdf->SetTextColor(10,115,6);	
 			$pdf->Cell(15,7,($fecven),0,0);
@@ -109,11 +109,11 @@
 			$pdf->SetFillColor(170,170,170);
 			$pdf->SetDrawColor(255,255,255);
 			$pdf->SetTextColor(24,28,34);	
-			$pdf->Cell(20,5,utf8_decode("Fecha"),1,0,'C',true);
-			$pdf->Cell(45,5,utf8_decode("T.Movimiento"),1,0,'C',true);
-			$pdf->Cell(20,5,utf8_decode("No.Doc."),1,0,'C',true);
-			$pdf->Cell(30,5,utf8_decode("Ingreso."),1,0,'C',true);
-			$pdf->Cell(30,5,utf8_decode("Salida"),1,0,'C',true);
+			$pdf->Cell(20,5,"Fecha",1,0,'C',true);
+			$pdf->Cell(45,5,"T.Movimiento",1,0,'C',true);
+			$pdf->Cell(20,5,"No.Doc.",1,0,'C',true);
+			$pdf->Cell(30,5,"Ingreso.",1,0,'C',true);
+			$pdf->Cell(30,5,"Salida",1,0,'C',true);
 			$pdf->Ln(4);
 			$pdf->SetTextColor(39,39,51);		
 
@@ -138,8 +138,8 @@
 						$pdf->SetFont('Arial','',7);
 						$pdf->SetDrawColor(23,83,201);
 						$pdf->Cell(20,6,($datadetalle['fechamovimiento']),0,0,'C');			
-						$pdf->Cell(45,6,utf8_decode($datadetalle['desmovimiento']),0,0,'L');
-						$pdf->Cell(20,6,utf8_decode($datadetalle['nodoc']),0,0,'C');
+						$pdf->Cell(45,6,$datadetalle['desmovimiento'],0,0,'L');
+						$pdf->Cell(20,6,$datadetalle['nodoc'],0,0,'C');
 						if (($tipo == 1) || ($tipo == 3) || ($tipo == 5)) {
 							$ingreso = $datadetalle['cantidad'];
 							$salida = 0;						
@@ -147,8 +147,8 @@
 							$ingreso = 0;
 							$salida = $datadetalle['cantidad'];													
 						}													
-						$pdf->Cell(30,6,utf8_decode($ingreso),0,0,'C');			
-						$pdf->Cell(30,6,utf8_decode($salida),0,0,'C');						
+						$pdf->Cell(30,6,$ingreso,0,0,'C');			
+						$pdf->Cell(30,6,$salida,0,0,'C');						
 						$pdf->Ln(4);	 	
 				
 					
@@ -172,7 +172,7 @@
 					$total = $ing - $eg;
 					$pdf->SetFont('Arial','B',8);		
 					$pdf->SetTextColor(32,100,210);
-					$pdf->Cell(97,5,utf8_decode(''),0,0);
+					$pdf->Cell(97,5,'',0,0);
 					$pdf->Cell(30,5,($ing),'TB',0);
 					$pdf->SetTextColor(85,0,0);
 					$pdf->Cell(20,5,($eg),'TB',0);
@@ -195,7 +195,7 @@
 			$pdf->SetFillColor(4,91,98);
 			$pdf->SetDrawColor(255,255,255);
 			$pdf->SetTextColor(255,255,255);
-			$pdf->Cell(150,8,utf8_decode("NO SE REGISTRA MOVIMIENTO DE INGRESO  SALIDA DEL MEDICAMENTO"),1,0,'C',true);			
+			$pdf->Cell(150,8,"NO SE REGISTRA MOVIMIENTO DE INGRESO  SALIDA DEL MEDICAMENTO",1,0,'C',true);			
 			$pdf->Ln(8);
 			$pdf->SetTextColor(39,39,51);
 		}
