@@ -164,8 +164,11 @@ if (!empty($_POST)) {
       $id_detalle = $_POST['id_detalle'];
       $token = md5($_SESSION['idUser']);     
 
-      $query_detalle_tmp_lote = mysqli_query($conexion, "CALL del_detalle_temp_lote($id_detalle,'$token')");
-      $result = mysqli_num_rows($query_detalle_tmp_lote);
+      $query_detalle_tmp_lote = mysqli_query($conexion, "DELETE FROM detalle_temp_lote WHERE correlativo = '$id_detalle' ");
+      $query_refresh = mysqli_query($conexion, "SELECT token_user, correlativo, codmedicamento, cantidad, precio_compra, preciocen,
+      preciosuc, fecvencimiento, nombrecompleto FROM detalle_temp_lote 
+      WHERE token_user = '$token'");
+      $result = mysqli_num_rows($query_refresh);
 
       $detalleTabla = '';
       $sub_total = 0;      
@@ -173,7 +176,7 @@ if (!empty($_POST)) {
         $data = "";
       $arrayDatadata = array();
       if ($result > 0) {      
-        while ($data = mysqli_fetch_assoc($query_detalle_tmp_lote)) {
+        while ($data = mysqli_fetch_assoc($query_refresh)) {
           $precioTotal = round($data['cantidad'] * $data['precio_compra'], 2);
           $sub_total = round($sub_total + $precioTotal, 2);
           $total = round($total + $precioTotal, 2);

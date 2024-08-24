@@ -38,7 +38,7 @@
 		#Titulo
 		$pdf->SetFont('Arial','B',18);
 		$pdf->SetTextColor(32,100,210);
-		$pdf->Cell(180,10,utf8_decode(strtoupper("NOTA DE INGRESO")),0,0,'C');
+		$pdf->Cell(180,10,strtoupper("NOTA DE INGRESO"),0,0,'C');
 		$pdf->Ln(20);
 
 		#Datos de la empresa 
@@ -47,40 +47,40 @@
 
 		#Nombre
 		$pdf->SetFont('Arial', 'B', 16);		
-		$pdf->Cell(60, 3, utf8_decode($resultado['razon_social']), 0, 1, 'L');
+		$pdf->Cell(60, 3, $resultado['razon_social'], 0, 1, 'L');
 		$pdf->Ln(2);
 
 		#NIT
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
 		$pdf->SetFont('Arial', 'B', 10);	
-		$pdf->Cell(25,9,utf8_decode("NIT: " ),0,0,'L');
+		$pdf->Cell(25,9,"NIT: " ,0,0,'L');
 		$pdf->SetFont('Arial', '', 10);
-		$pdf->Cell(160,9,utf8_decode($resultado['nit']),0,0,'L');					
+		$pdf->Cell(160,9,$resultado['nit'],0,0,'L');					
 		$pdf->Ln(5);
 		#DIRECCION
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
 		$pdf->SetFont('Arial', 'B', 10);	
-		$pdf->Cell(25,9,utf8_decode("Dirección: " ),0,0,'L');
+		$pdf->Cell(25,9,"Dirección: " ,0,0,'L');
 		$pdf->SetFont('Arial', '', 10);
-		$pdf->Cell(160,9,utf8_decode($resultado['direccion']),0,0,'L');					
+		$pdf->Cell(160,9,$resultado['direccion'],0,0,'L');					
 		$pdf->Ln(5);		
 		#TELÉFONO
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
 		$pdf->SetFont('Arial', 'B', 10);	
-		$pdf->Cell(25,9,utf8_decode("Teléfono: " ),0,0,'L');
+		$pdf->Cell(25,9,"Teléfono: " ,0,0,'L');
 		$pdf->SetFont('Arial', '', 10);
-		$pdf->Cell(160,9,utf8_decode($resultado['telefono']),0,0,'L');					
+		$pdf->Cell(160,9,$resultado['telefono'],0,0,'L');					
 		$pdf->Ln(5);
 		#EMAIL
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
 		$pdf->SetFont('Arial', 'B', 10);	
-		$pdf->Cell(25,9,utf8_decode("Email: " ),0,0,'L');
+		$pdf->Cell(25,9,"Email: " ,0,0,'L');
 		$pdf->SetFont('Arial', '', 10);
-		$pdf->Cell(160,9,utf8_decode($resultado['email']),0,0,'L');					
+		$pdf->Cell(160,9,$resultado['email'],0,0,'L');					
 		$pdf->Ln(12);		
 
 		#Datos de la emision
@@ -91,16 +91,16 @@
 		#FECHA
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(45,7,utf8_decode("Fecha de emisión:"),0,0);
+		$pdf->Cell(45,7,"Fecha de emisión:",0,0);
 		$pdf->SetTextColor(97,97,97);
-		$pdf->Cell(100,7,utf8_decode($result_lote['fecha']),0,0,'L');		
+		$pdf->Cell(100,7,$result_lote['fecha'],0,0,'L');		
 		$pdf->SetFont('Arial','B',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(35,7,utf8_decode(strtoupper("Nota Ingreso Nro.")),0,0,'C');
+		$pdf->Cell(35,7,strtoupper("Nota Ingreso Nro."),0,0,'C');
 		$pdf->Ln(7);
 		#CAJERO Y NRO DE NOTA DE INGRESO
 		$pdf->SetFont('Arial','',10);
-		$pdf->Cell(45,7,utf8_decode("Usuario: "),0,0,'L');
+		$pdf->Cell(45,7,"Usuario: ",0,0,'L');
 		$pdf->SetTextColor(97,97,97);
 		$pdf->Cell(100,7,$_SESSION['nombre'],0,0,'L');
 		$pdf->SetFont('Arial','B',14);
@@ -110,9 +110,9 @@
 		#DESCRIPCION 
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(45,7,utf8_decode("Descripción: "),0,0,'L');
+		$pdf->Cell(45,7,"Descripción: ",0,0,'L');
 		$pdf->SetTextColor(97,97,97);
-		$pdf->Cell(100,7,utf8_decode($result_lote['descripcion']),0,0,'L');		
+		$pdf->Cell(100,7,$result_lote['descripcion'],0,0,'L');		
 		$pdf->Ln(10);
 
 		#Datos del Proveedor
@@ -122,21 +122,21 @@
 		#NOMBRE - NIT 
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(25,7,utf8_decode("Proveedor:"),0,0);
+		$pdf->Cell(25,7,"Proveedor:",0,0);
 		$pdf->SetTextColor(97,97,97);
-		$pdf->Cell(110,7,utf8_decode($result_proveedor['proveedor']),0,0,'L');
+		$pdf->Cell(110,7,$result_proveedor['proveedor'],0,0,'L');
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(10,7,utf8_decode("NIT: "),0,0,'L');
+		$pdf->Cell(10,7,"NIT: ",0,0,'L');
 		$pdf->SetTextColor(97,97,97);
 		$pdf->Cell(40,7,$result_proveedor['nit'],0,0,'L');
 		$pdf->SetTextColor(39,39,51);
 		$pdf->Ln(7);
 		#DIRECCION - TELEFONO
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(25,7,utf8_decode("Dirección:"),0,0);
+		$pdf->Cell(25,7,"Dirección:",0,0);
 		$pdf->SetTextColor(97,97,97);
 		$pdf->Cell(110,7,$result_proveedor['direccion'],0,0);				
-		$pdf->Cell(10,7,utf8_decode("Tel:"),0,0,'L');
+		$pdf->Cell(10,7,"Tel:",0,0,'L');
 		$pdf->SetTextColor(97,97,97);
 		$pdf->Cell(35,7,$result_proveedor['telefono'],0,0);
 		$pdf->SetTextColor(39,39,51);
@@ -151,11 +151,11 @@
 		$pdf->SetFillColor(23,83,201);
 		$pdf->SetDrawColor(255,255,255);
 		$pdf->SetTextColor(255,255,255);
-		$pdf->Cell(90,8,utf8_decode("Descripción"),1,0,'C',true);
-		$pdf->Cell(20,8,utf8_decode("Cant."),1,0,'C',true);
-		$pdf->Cell(20,8,utf8_decode("Fec. Ven."),1,0,'C',true);
-		$pdf->Cell(20,8,utf8_decode("Precio /u."),1,0,'C',true);		
-		$pdf->Cell(28,8,utf8_decode("Subtotal"),1,0,'C',true);
+		$pdf->Cell(90,8,"Descripción",1,0,'C',true);
+		$pdf->Cell(20,8,"Cant.",1,0,'C',true);
+		$pdf->Cell(20,8,"Fec. Ven.",1,0,'C',true);
+		$pdf->Cell(20,8,"Precio /u.",1,0,'C',true);		
+		$pdf->Cell(28,8,"Subtotal",1,0,'C',true);
 		$pdf->Ln(8);
 		$pdf->SetTextColor(39,39,51);
 
@@ -164,7 +164,7 @@
 			$nombreCompleto = $row['nombre'];
 			$pdf->SetFont('Arial','',8);
 			$pdf->SetDrawColor(23,83,201);
-			$pdf->Cell(90,7,utf8_decode($nombreCompleto),'LB',0,'l');
+			$pdf->Cell(90,7,($nombreCompleto),'LB',0,'l');
 			$pdf->SetFont('Arial','',9);
 			$pdf->Cell(20,7,$row['cantidad'],'LB',0,'C');
 			$pdf->SetFont('Arial','',8);
@@ -194,11 +194,11 @@
 
 		#$pdf->Ln(7);
 
-		$pdf->Cell(100,7,utf8_decode(''),'',0,'C');
-		$pdf->Cell(15,7,utf8_decode(''),'',0,'C');
+		$pdf->Cell(100,7,'','',0,'C');
+		$pdf->Cell(15,7,'','',0,'C');
 
 
-		$pdf->Cell(32,7,utf8_decode("TOTAL A PAGAR"),'T',0,'C');
+		$pdf->Cell(32,7,"TOTAL A PAGAR",'T',0,'C');
 		$pdf->SetFont('Arial','B',12);		
 		$pdf->Cell(34,7,number_format($result_lote['totalcompra']),'T',0,'C');
 		$pdf->SetFont('Arial','B',9);	
