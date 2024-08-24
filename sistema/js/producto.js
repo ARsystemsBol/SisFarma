@@ -952,11 +952,16 @@ function searchForDetalle(id) {
     data: {action:action,user:user},
     success: function(response) {
       if (response == 0) {
-        console.log(info);
-      }else {
-        var info = JSON.parse(response);
-        $('#detalle_venta').html(info.detalle);
-        $('#detalle_totales').html(info.totales);
+        console.log(response);
+      } else {
+        try {
+          var info = JSON.parse(response);
+          $('#detalle_venta').html(info.detalle);
+          $('#detalle_totales').html(info.totales);
+        } catch (e) {
+          console.error("Error al parsear JSON:", e);
+          console.error("Respuesta del servidor:", response);
+        }
       }
       viewProcesar();
     },

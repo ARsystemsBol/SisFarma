@@ -92,8 +92,8 @@
         }
       }
     });
-    var usuarioid = '<?php echo $_SESSION['idUser']; ?>';
-    searchForDetalle(usuarioid);
+    var id = '<?php echo $_SESSION['idUser']; ?>';
+    searchForDetalle(id);
     
    
   });
