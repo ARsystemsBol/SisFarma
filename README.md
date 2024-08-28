@@ -5,3 +5,4 @@
 ### ESTRUCTURA
 
 - Modificacion al sistema MVC para control y seguridad de los datos
+- todo sera modificado en la rama "develop"
