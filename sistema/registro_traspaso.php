@@ -24,8 +24,10 @@ include "../conexion.php";
         <div class="card-header bg-azul text-white ">
             <div class="d-sm-flex align-items-center justify-content-between">
                 <h1 class="h6 mb-0 text-uppercase">Traspaso / Devolución de medicamentos</h1>
-                <a href="lista_traspasos.php" class="btn btn-danger btn-sm"><i
-                        class="fas fa-arrow-left mr-1"></i>Regresar</a>
+                <a href="lista_traspasos.php" class="btn btn-danger btn-sm">
+                    <i class="fas fa-arrow-left mr-1"></i>
+                    Regresar
+                </a>
             </div>
         </div>
         <!-- Cuarpo tarjeta -->
@@ -44,7 +46,8 @@ include "../conexion.php";
                         <option value="0"></option>
                         <?php if (($_SESSION['idsuc'] == 1) ) { ?>
                         <option value="4">TRASPASO SUCURSAL</option>
-                        <option value="2">DEVOLUCION PROVEEDOR</option>
+                        <option value="2">DEVOLUCION PROVEEDOR</option>  
+                        <option value="6">DEVOLUCION SUCURSAL</option>                      
                         <?php }	?>
                         <?php if (($_SESSION['idsuc'] != 1) ) { ?>
                         <option value="6">DEVOLUCIÓN SUCURSAL</option>
@@ -93,7 +96,7 @@ include "../conexion.php";
 
                 <!-- PROVEEDOR -->
                 <div class="col-md-6 mb-2">
-                    <label for="idproveedor-n1" style="font-size:13px" class="text-info">SUCURSAL - DESTINO</label>
+                    <label for="idproveedor-n1" style="font-size:13px" class="text-info">PROVEEDOR - DESTINO</label>
                     <?php                        
                             $query_proveedor = mysqli_query($conexion, "SELECT proveedor, codproveedor
                                                                         FROM proveedor                                                                         
@@ -135,7 +138,7 @@ include "../conexion.php";
                         </button>
                         <!-- BOTON DEVOLUCION ALMACEN-->
                         <button style="display: none;" name="btn-tn2" id="btn-tn2" type="button"
-                            class="btn btn-warning btn-sm pr-3 pl-3" data-bs-toggle="modal"
+                            class="btn btn-danger btn-sm pr-3 pl-3" data-bs-toggle="modal"
                             data-bs-target="#buscarmed-n2">
                             <i class="fas fa-search  mr-2"></i> Buscar Medicamento...
                         </button>
@@ -260,24 +263,25 @@ include "../conexion.php";
                                                         f.nombre AS desforma,
                                                         ate.nombre AS desaterapeutica,
                                                         un.abreviatura AS desunidad, 
-                                                        p.pcompra, p.pcentral, p.psucursal                                           
+                                                        p.preciocompra, p.precioventa                                      
                                                         FROM stock s 
                                                         INNER JOIN medicamento m ON s.idmedicamento = m.idmedicamento
                                                         INNER JOIN pactivo pa ON m.idpactivo = pa.id
                                                         INNER JOIN forma f ON m.idforma = f.idforma
                                                         INNER JOIN accionterapeutica ate ON m.idacciont = ate.idaccion
                                                         INNER JOIN unidades un ON m.idunidad = un.idunidad  
-                                                        INNER JOIN precios p ON s.idmedicamento = p.idmedicamento                                                    
-                                                        WHERE (idsuc = $suc AND saldo > 0)
+                                                        INNER JOIN kardex p ON s.idmedicamento = p.idmedicamento 
+                                                        AND s.fechavencimiento = p.fechavencimiento                                                   
+                                                        WHERE (s.idsuc = $suc AND saldo > 0)
                                                         ORDER BY idms ASC");
 					$result = mysqli_num_rows($query);
 					if ($result > 0) {
 						while ($data = mysqli_fetch_assoc($query)) { 
                             $data['nombrecompleto'] = $data['nombre'].' ' . $data['desforma'].'' . $data['concentracion'].' ' . $data['desunidad'];
                             if ($suc != 1) {
-                                $data['preciounitario'] = $data['pcentral'];
+                                $data['preciounitario'] = $data['precioventa'];
                             }else{
-                                $data['preciounitario'] = $data['psucursal'];
+                                $data['preciounitario'] = $data['precioventa'];
                             }
                             ?>
                                 <tr>
@@ -291,7 +295,7 @@ include "../conexion.php";
                                         <?php echo $data['fvs'] ;?>
                                     </td>
                                     <td class="text-center align-middle" style="font-size:14px">
-                                        <?php echo $data['pcompra'] ;?>
+                                        <?php echo $data['preciocompra'] ;?>
                                     </td>
                                     <td class="text-center align-middle" style="font-size:14px">
                                         <?php echo $data['preciounitario'] ;?>
@@ -306,7 +310,7 @@ include "../conexion.php";
                                             idmodal="#buscarmed-n1"
                                             des="<?php echo $data['nombrecompleto'] ;?>"
                                             st="<?php echo $data['saldos'] ;?>"
-                                            pc="<?php echo $data['pcompra'] ;?>"
+                                            pc="<?php echo $data['preciocompra'] ;?>"
                                             pv="<?php echo $data['preciounitario'] ;?>"
                                             fv="<?php echo $data['fvs'] ;?>"><i class='fas fa-check'></i>
                                         </button>

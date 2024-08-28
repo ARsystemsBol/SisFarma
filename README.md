@@ -1,49 +1,7 @@
-# Pasos a seguir
+# SIS FARMA V.4.2.1.2
 
-## MODULO LOTES.
+## Depuración del código => estructura, consultas y flujo del sistema
 
-- EL MONTO DE INGRESO DEBE TENER 3 PRECIOS
+### ESTRUCTURA
 
-* PRECIO DE COMPRA => QUE SE CONSIDERA PARA EL PAGO AL PROVEEDOR
-  SALIDA DE DINERO CONTRA COMPRA DE MERCADERIA
-  EROGACION DE DINERO
-
-* PRECIO DE VENTA => PRECIO PREDETERMINADO EL CUAL SE PUEDE MODIFICAR AL MOMENTO DEL INGRESO DEL MEDICAMENTO => SE CONSIDERA PARA EL VALOR DE VENTA FINAL DEL MEDICAMENTO EN LA OFICINA CENTRAL
-
-* PRECIO DE VENTA SUCURSAL => PRECIO PREDETERMINADO EL CUAL SE PUEDE MODIFICAR AL MOMENTO DEL INGRESO DEL MEDICAMENTO => SE CONSIDERA PARA EL VALOR DE VENTA FINAL DEL MENDICAMENTO EN LAS SUCURSALES (PRECIO QUE DEPENDIENDO DEL ADMINISTRADOR PUEDE MANTENERSE IGUAL AL PRECIO DE VENTA)
-
-## MODULO TRASPASOS
-
-- FLUJO PROCEDIMIENTOS DE TRASPASOS
-
-* ALMACEN => SUCURSARL
-* SUCURSAL => ALMACEN
-* ALMACEN => PROVEEDOR (AUN NO EXISTE EL PROCEDIMIENTO)
-
-## MODULO DASHBOARD
-
-* TARJETAS DE INFORMACION
-
-- TARJETAS MEDICAMENTOS CADUCOS ✅
-- TARJETAS MEDICAMENTOS CON VENCIMIENTO CERCANO ✅
-
-## MODULO BAJA EXISTENCIA
-
-- MOSTRAR INFORMACION DE LA TABLA STOCK CON BAJA EXISTENCIA ✅
-- REVISAR Y LOGRAR MOSTRAR EL NUMERO DE LOTE QUE CORRESPONDE CADA MEDICAMENTO
-
-- Editar la función de los botones para imprimir
-
-1. Boton imprimir, imprimiara todos los registros ordenados por laboratorio, medicamento, lote y fecha de vencimiento
-2. Boton cancelar, devolvera el valor de imput de seleccion del laboratorio al valor por defecto...(Seleccionar... Value = 0)
-   Cambiara el estado del boton cancelar y x Laboratorio a desactivado.
-3. Boton x Laboratorio, imprimira los registros con el valor del Imput seleccionado.
-4. los botones cancelar y x laboratorio estaran en estado desactivado hasta que se en el imput de seleccion tenga un valur != 0 
-
-## MODULO VENCIMIENTO
-
-* MOSTRAR INFORMACION DE LA TABLA STOCK CON FECHA DE VENCIMIENTO ✅
-
-## MODULO CADUCOS
-
-* MOSTRAR INFORMACION DE LA TABLA STOCK CON PRODUCTOS CADUCOS ✅
+- Modificacion al sistema MVC para control y seguridad de los datos

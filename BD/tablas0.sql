@@ -6,3 +6,5 @@ TRUNCATE TABLE traspaso;
 TRUNCATE TABLE detalletraspaso;
 TRUNCATE TABLE detalle_temp_traspaso;
 TRUNCATE TABLE devolucion_suc;
+TRUNCATE TABLE kardex;
+TRUNCATE TABLE stock;

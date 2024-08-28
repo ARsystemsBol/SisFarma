@@ -117,7 +117,7 @@
 		</a>
 		<div id="collapseTransferencias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_traspaso.php"><i class="fas fa-upload mr-2 text-verde"></i>Traspaso - Devolucion</a>				
+				<a class="collapse-item" href="registro_traspaso.php"><i class="fas fa-upload mr-2 text-verde text-xl"></i>Traspaso/Devolucion</a>				
 				<a class="collapse-item" href="lista_traspasos.php"><i class="fas fa-list mr-2 text-rojo"></i>Traspasos</a>
 				<a class="collapse-item" href="lista_devoluciones.php"><i class="fas fa-list mr-2 text-azul"></i>Devoluciones</a>
 			</div>
