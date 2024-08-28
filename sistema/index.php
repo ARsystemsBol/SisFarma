@@ -172,7 +172,8 @@
 											include "../conexion.php";	
 											$query_vencimiento = mysqli_query($conexion, "SELECT *
 																						FROM stock
-																						WHERE MONTH(fechavencimiento) = MONTH(CURRENT_DATE)"); 
+																						WHERE WEEK(fechavencimiento) = WEEK(CURRENT_DATE)
+																						AND fechavencimiento >= CURRENT_DATE"); 
 											$resultado_vencimiento = mysqli_num_rows($query_vencimiento);										
 											?>
 											
@@ -202,7 +203,7 @@
 											include "../conexion.php";	
 											$query_caduco = mysqli_query($conexion, "SELECT *
 																					FROM stock
-																					WHERE MONTH(fechavencimiento) <= MONTH(CURRENT_DATE)"); 
+																					WHERE fechavencimiento < CURRENT_DATE"); 
 											$resultado_caduco = mysqli_num_rows($query_caduco);										
 											?>	
 											<a class="col-xl-3 col-md-6 mb-4" style="text-decoration:none;" href="lista_medcaducados.php">
