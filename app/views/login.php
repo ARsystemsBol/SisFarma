@@ -28,7 +28,7 @@
         </div>
         <br>    
         <div class="main">
-            <form method="POST" action="../../app/controllers/LoginController.php">  
+            <form method="POST" action="../app/controllers/LoginController.php">  
                 <span>
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="Usuario" name="usuario">

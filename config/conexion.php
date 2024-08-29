@@ -18,11 +18,6 @@ $conexion = mysqli_connect($host, $user, $clave, $bd);
 // Verificar la conexión
 if (!$conexion) {
     die( "Error de conexión: " . mysqli_connect_error());
-} else {
-    echo "Conexión exitosa a la base de datos.";
-}
-
-// Cerrar la conexión
-mysqli_close($conexion);
+} 
 
 ?>
