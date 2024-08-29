@@ -18,10 +18,16 @@
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<body class="mt-2">
+<body class="mt-2">  
     <div class="col-xl-4 m-auto text-center">
-        <?php echo isset($alert) ? $alert : ""; ?>
-    </div>
+        <?php 
+        session_start();
+        if(isset($_SESSION['alert'])){
+            echo $_SESSION['alert'];
+            unset($_SESSION['alert']); 
+        }
+        ?>
+    </div> 
     <div class="contenedor"> 
         <div class="header">
             <img src="assets/img/farmacia2_favicon.png" width="200px" height="200px">
@@ -41,5 +47,6 @@
             </form>
         </div>
     </div>
+    
 </body>
 </html>
