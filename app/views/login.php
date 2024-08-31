@@ -1,4 +1,9 @@
 <!-- SISTEMA/app/views/login.php -->
+
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,7 +26,7 @@
 <body class="mt-2">  
     <div class="col-xl-4 m-auto text-center">
         <?php 
-        session_start();
+      
         if(isset($_SESSION['alert'])){
             echo $_SESSION['alert'];
             unset($_SESSION['alert']); 
