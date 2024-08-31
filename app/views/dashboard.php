@@ -3,14 +3,6 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid pt-5 mt-5">
-
-	<!-- Page Heading -->	
-	<!-- <nav aria-label="breadcrumb mt-5">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.php"><i class="fas fa-home text-info"></a></i></li>			
-				<li class="breadcrumb-item active" aria-current="page">Panel de Control</li>
-			</ol>
-	</nav> -->
 	<?php if ($_SESSION['rol'] == 1) { ?>
 	
 		<div class="card mb-4">			
